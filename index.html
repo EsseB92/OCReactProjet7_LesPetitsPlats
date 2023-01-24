@@ -7,10 +7,7 @@
     <title>Les petits plats</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?
-        family=Lato:wght@100;300;400;700;900
-        family=Roboto:wght@100;300;400;500;700;900
-    &display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://kit.fontawesome.com/34d16a3229.js" crossorigin="anonymous"></script>
 </head>
@@ -23,18 +20,18 @@
       
     <main id="main">
         <div id="searchbar">
-            <input class="searchbar__input" type="text" placeholder="Rechercher une recette">
+            <input class="searchbar__input" type="text" placeholder="Rechercher une recette" id="main-search-input" oninput="filterRecipes(this.value)">
             <i class="fa-solid fa-magnifying-glass searchbar__icon"></i>
         </div>
 
         <div id="tags"></div>
         
         <div id="filters">
-            <div class="ingredients filter__ingredients">
+            <div class="filter ingredients">
                 <div class="filter__header">
                     <span class="filter__title">Ingrédients</span>
                     <!-- Invisible -->
-                    <input class="filter__search" type="text" placeholder="Rechercher un ingrédient" id="search-input" name="search-input">
+                    <input class="filter__search" type="text" placeholder="Rechercher un ingrédient" id="ingredients-input" name="ingredients-input" oninput="refineSearch()">
                     <i class="fa-solid fa-angle-down filter__icon"></i>
                 </div>
                 <!-- Invisible -->
@@ -47,11 +44,11 @@
                 </div>
             </div>
 
-            <div class="appliance filter__ingredients">
+            <div class="filter appliances">
                 <div class="filter__header">
                     <span class="filter__title">Appareils</span>
                     <!-- Invisible -->
-                    <input class="filter__search" type="text" placeholder="Rechercher un appareil" id="search-input" name="search-input">
+                    <input class="filter__search" type="text" placeholder="Rechercher un appareil" id="appliances-input" name="appliances-input" oninput="refineSearch()">
                     <i class="fa-solid fa-angle-down filter__icon"></i>
                 </div>
                 <!-- Invisible -->
@@ -64,11 +61,11 @@
                 </div>
             </div>
 
-            <div class="ustensils filter__ingredients">
+            <div class="filter ustensils">
                 <div class="filter__header">
                     <span class="filter__title">Ustensiles</span>
                     <!-- Invisible -->
-                    <input class="filter__search" type="text" placeholder="Rechercher un ustensile" id="search-input" name="search-input">
+                    <input class="filter__search" type="text" placeholder="Rechercher un ustensile" id="ustensils-input" name="ustensils-input" oninput="refineSearch()">
                     <i class="fa-solid fa-angle-down filter__icon"></i>
                 </div>
                 <!-- Invisible -->
@@ -80,13 +77,31 @@
                     <div class="filter__item">Cuillère en bois</div>
                 </div>
             </div>
-            
         </div>
 
-        
-        <section id="recipe">
+        <section id="recipes">
             <!-- Exemple d'article -->
-            <article class="recipe__container">
+            <!-- <article class="recipe">
+                <div class="recipe__image"></div>
+                <div class="recipe__header">
+                    <p class="recipe__name">Limonade de Coco</p>
+                    <div class="recipe__duration">
+                        <i class="fa-regular fa-clock"></i>
+                        <span class="recipe__time">10 min</span>
+                    </div>
+                </div>
+                <div class="recipe__footer">
+                    <div class="recipe__foods">
+                        <p class="recipe__food"><b class="recipe__food--bold">Lait de coco</b>: 400ml</p>
+                        <p class="recipe__food"><b class="recipe__food--bold">Jus de citron</b>: 2</p>
+                        <p class="recipe__food"><b class="recipe__food--bold">Créme de coco</b>: 4 cuillères</p>
+                        <p class="recipe__food"><b class="recipe__food--bold">Sucre</b>: 20g</p>
+                        <p class="recipe__food"><b class="recipe__food--bold">Glaçons</b>: 2</p>
+                    </div>
+                    <p class="recipe__desc">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.</p>
+                </div>
+            </article>
+            <article class="recipe">
                 <div class="recipe__image"></div>
                 <div class="recipe__header">
                     <p class="recipe__name">Limonade de Coco</p>
@@ -106,7 +121,7 @@
                     <p class="recipe__desc">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.</p>
                 </div>
             </article>
-            <article class="recipe__container">
+            <article class="recipe">
                 <div class="recipe__image"></div>
                 <div class="recipe__header">
                     <p class="recipe__name">Limonade de Coco</p>
@@ -125,28 +140,12 @@
                     </p>
                     <p class="recipe__desc">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.</p>
                 </div>
-            </article>
-            <article class="recipe__container">
-                <div class="recipe__image"></div>
-                <div class="recipe__header">
-                    <p class="recipe__name">Limonade de Coco</p>
-                    <div class="recipe__duration">
-                        <i class="fa-regular fa-clock"></i>
-                        <span class="recipe__time">10 min</span>
-                    </div>
-                </div>
-                <div class="recipe__footer">
-                    <p class="recipe__food">
-                        <span class="recipe__food--bold">Lait de coco</span>: 400ml<br>
-                        <span class="recipe__food--bold">Jus de citron</span>: 2<br>
-                        <span class="recipe__food--bold">Créme de coco</span>: 4 cuillères<br>
-                        <span class="recipe__food--bold">Sucre</span>: 20g<br>
-                        <span class="recipe__food--bold">Glaçons</span>: 2<br>
-                    </p>
-                    <p class="recipe__desc">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.</p>
-                </div>
-            </article>
+            </article> -->
         </section>
     </main>
+
+    <script type="text/javascript" src="scripts/recipe.js"></script>
+    <script type="text/javascript" src="scripts/factories/recipe.js"></script>
+    <script type="text/javascript" src="data/recipes.js"></script>
 </body>
 </html>
