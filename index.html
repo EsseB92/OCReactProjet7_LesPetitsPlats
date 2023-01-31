@@ -27,15 +27,15 @@
         <div id="tags"></div>
         
         <div id="filters">
-            <div class="filter ingredients">
+            <div class="filter" id="ingredients-filter">
                 <div class="filter__header">
-                    <span class="filter__title">Ingrédients</span>
+                    <span class="filter__title" id="ingredients-title">Ingrédients</span>
                     <!-- Invisible -->
                     <input class="filter__search" type="text" placeholder="Rechercher un ingrédient" id="ingredients-input" name="ingredients-input" oninput="refineSearch()">
-                    <i class="fa-solid fa-angle-down filter__icon"></i>
+                    <i id="ingredients-icon" class="fa-solid fa-angle-down filter__icon" onclick="openDropdownMenu('ingredients')"></i>
                 </div>
                 <!-- Invisible -->
-                <div class="filter__list">
+                <div id="ingredients-list" class="filter__list">
                     <div class="filter__item">Ail</div>
                     <div class="filter__item">Ananas</div>
                     <div class="filter__item">Banane</div>
@@ -44,15 +44,17 @@
                 </div>
             </div>
 
-            <div class="filter appliances">
+            <div class="filter" id="appliances-filter">
                 <div class="filter__header">
-                    <span class="filter__title">Appareils</span>
+                    <span class="filter__title" id="appliances-title">Appareils</span>
                     <!-- Invisible -->
                     <input class="filter__search" type="text" placeholder="Rechercher un appareil" id="appliances-input" name="appliances-input" oninput="refineSearch()">
-                    <i class="fa-solid fa-angle-down filter__icon"></i>
+                    <i id="appliances-icon" class="fa-solid fa-angle-down filter__icon" onclick="openDropdownMenu('appliances')"></i>
+                    
+                    
                 </div>
                 <!-- Invisible -->
-                <div class="filter__list">
+                <div id="appliances-list" class="filter__list">
                     <div class="filter__item">Blender</div>
                     <div class="filter__item">Casserole</div>
                     <div class="filter__item">Cocotte</div>
@@ -61,15 +63,15 @@
                 </div>
             </div>
 
-            <div class="filter ustensils">
+            <div class="filter" id="ustensils-filter">
                 <div class="filter__header">
-                    <span class="filter__title">Ustensiles</span>
+                    <span class="filter__title" id="ustensils-title">Ustensiles</span>
                     <!-- Invisible -->
                     <input class="filter__search" type="text" placeholder="Rechercher un ustensile" id="ustensils-input" name="ustensils-input" oninput="refineSearch()">
-                    <i class="fa-solid fa-angle-down filter__icon"></i>
+                    <i id="ustensils-icon" class="fa-solid fa-angle-down filter__icon" onclick="openDropdownMenu('ustensils')"></i>
                 </div>
                 <!-- Invisible -->
-                <div class="filter__list">
+                <div id="ustensils-list" class="filter__list">
                     <div class="filter__item">Bol</div>
                     <div class="filter__item">Casserole</div>
                     <div class="filter__item">Cocotte minute</div>
