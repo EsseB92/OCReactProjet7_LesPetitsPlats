@@ -18,9 +18,12 @@
 
 body {
     margin: 0;
-    
-    
 }
+
+* {
+  box-sizing: border-box;
+}
+
 
 /* HEADER */
 
@@ -81,43 +84,167 @@ body {
 
 /* FILTERS */
 
-#filters {
+#filters{
+    margin: 0 100px;
+    padding: 0px;
+    column-gap: 20px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 20px;
+}
+
+.filter{
+    height: 69px;
+    max-width: 600px;
+    color: white;
+    border-radius: 5px;
+    padding: 0px;
+    column-gap: 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#ingredients-filter.active, #appliances-filter.active, #ustensils-filter.active{
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.filter__header{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0px 10px;
+    column-gap: 30px;
+    width: 100%;
+    height: 100%;
+    height: 100%;
+}
+
+.filter__list, .filter__search, .active .filter__title{
+    display: none;
+}
+
+.active .filter__list, .active .filter__search{
+    display: flex;
+}
+
+.active .filter__list{
+    width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 15px;
+    padding: 10px 10px;
+    z-index: 1;
+}
+
+.filter__icon::before {
+    cursor: pointer;
+    /* transform: rotate(0deg); */
+}
+ 
+.active .filter__icon {
+    transform: rotate(180deg);
+}
+
+#ingredients-filter, #ingredients-filter .filter__list{
+    background: #3282F7;
+}
+
+#appliances-filter, #appliances-filter .filter__list{
+    background: #68D9A4;
+}
+
+#ustensils-filter, #ustensils-filter .filter__list{
+    background: #ED6454;
+}
+
+.filter__search{
+    outline: none;
+    width: calc(100% - 45px);
+    margin: 0px;
+    border: none;
+    background-color: transparent;
+    height: 69px;
+}
+
+.filter__search::placeholder{
+    color: white;
+    opacity: 0.8;
+}
+
+.filter__item{
+    display: flex;
+    align-items: center;
+    width: 180px;
+    cursor: pointer;
+}
+
+/* #filters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0 20px;
     margin: 0 100px;
-    color: #fff;
 }
 
 .filter {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    position: relative;
+    gap: 0 30px;
+     justify-content: center;
 
-    width: 170px;
+    max-width: 600px;
     height: 70px;
     border-radius: 5px;
+    color: #fff;
 }
-.ingredients {
+#ingredients-filter, #ingredients-list {
     background: #3282F7;
 }
-.appliances {
+#appliances-filter, #appliances-list {
     background: #68D9A4;
 }
-.ustensils {
+#ustensils-filter, #ustensils-list {
     background: #ED6454;
 }
 
 .filter__header {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-content: center;
+    flex-wrap: wrap;
+     justify-content: space-around; 
+    align-items: center;
+    gap: 0 30px;
 
     padding: 0 15px;
-    font-size: 18px;
+    width: 100%;
+    height: 100%;
+}
+
+.filter__search, .filter__list, .active .filter__title {
+    display: none;
+}
+
+.active .filter__list, .active .filter__search {
+    display: flex;
+}
+
+.active .filter__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px 20px;
+
+    width: 100%;
+    z-index: 1;
+
+    padding: 10px;
 }
 
 .filter__title {
@@ -126,18 +253,29 @@ body {
 }
 
 .filter__search {
-    display: none;
-    visibility: hidden;
+    width: calc(100%-45px);
+    margin: 0;
+    outline: none;
+}
+
+.filter__search::placeholder {
+    color: #fff;
+    opacity: .8;
 }
 
 .filter__icon {
     cursor: pointer;
+    transform: rotate(0deg);
 }
 
-.filter__list {
+.active .filter__icon {
+    transform: rotate(180deg);
+} */
+
+/* .filter__list {
     display: none;
     visibility: hidden;
-}
+} */
 
 /* RECIPE */
 
