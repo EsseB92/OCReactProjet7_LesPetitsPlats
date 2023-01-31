@@ -75,10 +75,13 @@ function unit(unit){
     }
     switch (unit) {
         case 'grammes':
+        case 'gramme':
+        case 'g':
             return "g";
         case 'litres':
         case 'Litres':
         case 'litre':
+        case 'l':
             return "l";
         case 'ml':
         case 'cl':
