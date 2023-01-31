@@ -128,6 +128,11 @@ function updateUI(results) {
     // Vérification s'il y a des résultats personnalisés
     if (results.length === 0) {
         // MAJ des recettes
+        allRecipes.sort((a, b) => {
+            if (a.name < b.name) return -1;
+            if (a.name > b.name) return 1;
+            return 0;
+        });
         for (let i = 0; i < allRecipes.length; i++) {
             const recipe = allRecipes[i];
             const recipeModel = recipeFactory(recipe);
@@ -143,14 +148,17 @@ function updateUI(results) {
                 }
             }
             for (const ustensil of recipe.ustensils) {
-                if (!filteredUstensils.includes(ustensil)) {
-                    filteredUstensils.push(ustensil);
+                if (!filteredUstensils.includes(ustensil.toLowerCase())) {
+                    filteredUstensils.push(ustensil.toLowerCase());
                 }
             }
-            if (!filteredAppliances.includes(recipe.appliance)) {
-                filteredAppliances.push(recipe.appliance);
+            if (!filteredAppliances.includes(recipe.appliance.toLowerCase())) {
+                filteredAppliances.push(recipe.appliance.toLowerCase());
             }
         }
+        filteredIngredients.sort();
+        filteredUstensils.sort();
+        filteredAppliances.sort();
         displayIngredients();
         displayUstensils();
         displayAppliances();
@@ -222,7 +230,6 @@ function displayAppliances(){
         appliances.appendChild(div);
     }
 }
-
 
 function openDropdownMenu(type){
     const filters = document.getElementsByClassName('filter');
