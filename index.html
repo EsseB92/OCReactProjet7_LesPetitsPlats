@@ -31,7 +31,7 @@
                 <div class="filter__header">
                     <span class="filter__title" id="ingredients-title">Ingrédients</span>
                     <!-- Invisible -->
-                    <input class="filter__search" type="text" placeholder="Rechercher un ingrédient" id="ingredients-input" name="ingredients-input" oninput="refineSearch()">
+                    <input class="filter__search" type="text" placeholder="Rechercher un ingrédient" id="ingredients-input" name="ingredients-input" oninput="refineSearch(this.value, this.id)">
                     <i id="ingredients-icon" class="fa-solid fa-angle-down filter__icon" onclick="openDropdownMenu('ingredients')"></i>
                 </div>
                 <!-- Invisible -->
@@ -48,7 +48,7 @@
                 <div class="filter__header">
                     <span class="filter__title" id="appliances-title">Appareils</span>
                     <!-- Invisible -->
-                    <input class="filter__search" type="text" placeholder="Rechercher un appareil" id="appliances-input" name="appliances-input" oninput="refineSearch()">
+                    <input class="filter__search" type="text" placeholder="Rechercher un appareil" id="appliances-input" name="appliances-input" oninput="refineSearch(this.value, this.id)">
                     <i id="appliances-icon" class="fa-solid fa-angle-down filter__icon" onclick="openDropdownMenu('appliances')"></i>
                     
                     
@@ -67,7 +67,7 @@
                 <div class="filter__header">
                     <span class="filter__title" id="ustensils-title">Ustensiles</span>
                     <!-- Invisible -->
-                    <input class="filter__search" type="text" placeholder="Rechercher un ustensile" id="ustensils-input" name="ustensils-input" oninput="refineSearch()">
+                    <input class="filter__search" type="text" placeholder="Rechercher un ustensile" id="ustensils-input" name="ustensils-input" oninput="refineSearch(this.value, this.id)">
                     <i id="ustensils-icon" class="fa-solid fa-angle-down filter__icon" onclick="openDropdownMenu('ustensils')"></i>
                 </div>
                 <!-- Invisible -->
@@ -82,67 +82,7 @@
         </div>
 
         <section id="recipes">
-            <!-- Exemple d'article -->
-            <!-- <article class="recipe">
-                <div class="recipe__image"></div>
-                <div class="recipe__header">
-                    <p class="recipe__name">Limonade de Coco</p>
-                    <div class="recipe__duration">
-                        <i class="fa-regular fa-clock"></i>
-                        <span class="recipe__time">10 min</span>
-                    </div>
-                </div>
-                <div class="recipe__footer">
-                    <div class="recipe__foods">
-                        <p class="recipe__food"><b class="recipe__food--bold">Lait de coco</b>: 400ml</p>
-                        <p class="recipe__food"><b class="recipe__food--bold">Jus de citron</b>: 2</p>
-                        <p class="recipe__food"><b class="recipe__food--bold">Créme de coco</b>: 4 cuillères</p>
-                        <p class="recipe__food"><b class="recipe__food--bold">Sucre</b>: 20g</p>
-                        <p class="recipe__food"><b class="recipe__food--bold">Glaçons</b>: 2</p>
-                    </div>
-                    <p class="recipe__desc">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.</p>
-                </div>
-            </article>
-            <article class="recipe">
-                <div class="recipe__image"></div>
-                <div class="recipe__header">
-                    <p class="recipe__name">Limonade de Coco</p>
-                    <div class="recipe__duration">
-                        <i class="fa-regular fa-clock"></i>
-                        <span class="recipe__time">10 min</span>
-                    </div>
-                </div>
-                <div class="recipe__footer">
-                    <p class="recipe__food">
-                        <span class="recipe__food--bold">Lait de coco</span>: 400ml<br>
-                        <span class="recipe__food--bold">Jus de citron</span>: 2<br>
-                        <span class="recipe__food--bold">Créme de coco</span>: 4 cuillères<br>
-                        <span class="recipe__food--bold">Sucre</span>: 20g<br>
-                        <span class="recipe__food--bold">Glaçons</span>: 2<br>
-                    </p>
-                    <p class="recipe__desc">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.</p>
-                </div>
-            </article>
-            <article class="recipe">
-                <div class="recipe__image"></div>
-                <div class="recipe__header">
-                    <p class="recipe__name">Limonade de Coco</p>
-                    <div class="recipe__duration">
-                        <i class="fa-regular fa-clock"></i>
-                        <span class="recipe__time">10 min</span>
-                    </div>
-                </div>
-                <div class="recipe__footer">
-                    <p class="recipe__food">
-                        <span class="recipe__food--bold">Lait de coco</span>: 400ml<br>
-                        <span class="recipe__food--bold">Jus de citron</span>: 2<br>
-                        <span class="recipe__food--bold">Créme de coco</span>: 4 cuillères<br>
-                        <span class="recipe__food--bold">Sucre</span>: 20g<br>
-                        <span class="recipe__food--bold">Glaçons</span>: 2<br>
-                    </p>
-                    <p class="recipe__desc">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.</p>
-                </div>
-            </article> -->
+
         </section>
     </main>
 
