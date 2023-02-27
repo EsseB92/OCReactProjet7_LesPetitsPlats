@@ -68,16 +68,50 @@ body {
     position: absolute;
 
     font-size: 30px;
-    right: 15px;
+    right: 30px;
     top: 11px;
 }
 
 /* TAGS */
 
 #tags {
-    display: none;
-    visibility: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     margin: 0 100px;
+    color: #fff;
+}
+
+.tag {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 5px;
+}
+
+.tag__text {
+    font-size: 14px;
+}
+
+.tag__icon {
+    cursor: pointer;
+}
+
+.ingredients-tag{
+    background: #3282F7;
+}
+
+.appliances-tag{
+    background: #68D9A4;
+}
+
+.ustensils-tag{
+    background: #ED6454;
 }
 
 
@@ -370,7 +404,11 @@ body {
 
         .recipe__desc {
             width: 100%;
+            height: fit-content;
             margin: 0;
-
+            display: -webkit-box;
+            -webkit-line-clamp: 6;
+            -webkit-box-orient: vertical;  
+            overflow: hidden;
             font-family: 'Roboto';
         }
