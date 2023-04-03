@@ -286,17 +286,19 @@ function openDropdownMenu(type){
     if(ingredientsDOM.classList.contains('active')) {
         ingredientsDOM.classList.remove('active');
     } else {
-        filters.forEach(filter => {
+        for (let i = 0; i < filters.length; i++) {
+            const filter = filters[i];
             if (filter.classList.contains('active')) {
                 filter.classList.remove('active');
             }
-        });
+        }
         ingredientsDOM.classList.add('active');
     }
 }
 
-function addTag(tagType, value) {
+function addTag(tagType, tagValue) {
     let tags = null;
+    let found = false;
 
     switch (tagType){
         case 'ingredient':
@@ -310,8 +312,15 @@ function addTag(tagType, value) {
             break;
     }
 
-    if(!tags.includes(value.toLowerCase())) {
-        tags.push(value.toLowerCase());
+    for (let i = 0; i < tags.length; i++) {
+        if (tags[i].toLowerCase() === tagValue.toLowerCase()) {
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        tags.push(tagValue.toLowerCase());
     }
 
     updateTags();
@@ -334,8 +343,14 @@ function deleteTag(tagType, tagValue) {
         default:
             return;
     }
+
     const index = tags.indexOf(tagValue.toLowerCase());
-    if (index !== -1) tags.splice(index, 1);
+    for (let i = 0; i < tags.length; i++) {
+        if (tags[i].toLowerCase() === tagValue.toLowerCase()) {
+            tags.splice(i, 1);
+            break;
+        }
+    }
 
     updateTags();
     filterRecipes();

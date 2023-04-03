@@ -206,7 +206,7 @@ function openDropdownMenu(type){
     }
 }
 
-function addTag(tagType, value) {
+function addTag(tagType, tagValue) {
     let tags = null;
 
     switch (tagType){
@@ -221,8 +221,8 @@ function addTag(tagType, value) {
             break;
     }
 
-    if(!tags.includes(value.toLowerCase())) {
-        tags.push(value.toLowerCase());
+    if(!tags.includes(tagValue.toLowerCase())) {
+        tags.push(tagValue.toLowerCase());
     }
 
     updateTags();
