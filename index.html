@@ -1,88 +1,131 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Les petits plats</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="https://kit.fontawesome.com/34d16a3229.js" crossorigin="anonymous"></script>
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/34d16a3229.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <header id="header">
-        <a href="index.html">
-          <img class="header__image" src="/assets/logo.png" alt="Logo">
-        </a>
+      <a href="index.html">
+        <img class="header__image" src="./assets/logo.png" alt="Logo" />
+      </a>
     </header>
-      
+
     <main id="main">
-        <div id="searchbar">
-            <input class="searchbar__input" type="text" placeholder="Rechercher une recette" id="main-search-input" oninput="filterRecipes(this.value)">
-            <i class="fa-solid fa-magnifying-glass searchbar__icon"></i>
+      <div id="searchbar">
+        <input
+          class="searchbar__input"
+          type="text"
+          placeholder="Rechercher une recette"
+          id="main-search-input"
+          oninput="filterRecipes(this.value)"
+        />
+        <i class="fa-solid fa-magnifying-glass searchbar__icon"></i>
+      </div>
+
+      <div id="tags"></div>
+
+      <div id="filters">
+        <div class="filter" id="ingredients-filter">
+          <div class="filter__header">
+            <span class="filter__title" id="ingredients-title"
+              >Ingrédients</span
+            >
+            <input
+              class="filter__search"
+              type="text"
+              placeholder="Rechercher un ingrédient"
+              id="ingredients-input"
+              name="ingredients-input"
+              oninput="refineSearch(this.value, this.id)"
+            />
+            <i
+              id="ingredients-icon"
+              class="fa-solid fa-angle-down filter__icon"
+              onclick="openDropdownMenu('ingredients')"
+            ></i>
+          </div>
+          <div id="ingredients-list" class="filter__list">
+            <div class="filter__item">Ail</div>
+            <div class="filter__item">Ananas</div>
+            <div class="filter__item">Banane</div>
+            <div class="filter__item">Basilic</div>
+            <div class="filter__item">Beurre</div>
+          </div>
         </div>
 
-        <div id="tags"></div>
-        
-        <div id="filters">
-            <div class="filter" id="ingredients-filter">
-                <div class="filter__header">
-                    <span class="filter__title" id="ingredients-title">Ingrédients</span>
-                    <input class="filter__search" type="text" placeholder="Rechercher un ingrédient" id="ingredients-input" name="ingredients-input" oninput="refineSearch(this.value, this.id)">
-                    <i id="ingredients-icon" class="fa-solid fa-angle-down filter__icon" onclick="openDropdownMenu('ingredients')"></i>
-                </div>
-                <div id="ingredients-list" class="filter__list">
-                    <div class="filter__item">Ail</div>
-                    <div class="filter__item">Ananas</div>
-                    <div class="filter__item">Banane</div>
-                    <div class="filter__item">Basilic</div>
-                    <div class="filter__item">Beurre</div>
-                </div>
-            </div>
-
-            <div class="filter" id="appliances-filter">
-                <div class="filter__header">
-                    <span class="filter__title" id="appliances-title">Appareils</span>
-                    <input class="filter__search" type="text" placeholder="Rechercher un appareil" id="appliances-input" name="appliances-input" oninput="refineSearch(this.value, this.id)">
-                    <i id="appliances-icon" class="fa-solid fa-angle-down filter__icon" onclick="openDropdownMenu('appliances')"></i>
-                    
-                    
-                </div>
-                <div id="appliances-list" class="filter__list">
-                    <div class="filter__item">Blender</div>
-                    <div class="filter__item">Casserole</div>
-                    <div class="filter__item">Cocotte</div>
-                    <div class="filter__item">Cuiseur de riz</div>
-                    <div class="filter__item">Four</div>
-                </div>
-            </div>
-
-            <div class="filter" id="ustensils-filter">
-                <div class="filter__header">
-                    <span class="filter__title" id="ustensils-title">Ustensiles</span>
-                    <input class="filter__search" type="text" placeholder="Rechercher un ustensile" id="ustensils-input" name="ustensils-input" oninput="refineSearch(this.value, this.id)">
-                    <i id="ustensils-icon" class="fa-solid fa-angle-down filter__icon" onclick="openDropdownMenu('ustensils')"></i>
-                </div>
-                <div id="ustensils-list" class="filter__list">
-                    <div class="filter__item">Bol</div>
-                    <div class="filter__item">Casserole</div>
-                    <div class="filter__item">Cocotte minute</div>
-                    <div class="filter__item">Couteau</div>
-                    <div class="filter__item">Cuillère en bois</div>
-                </div>
-            </div>
+        <div class="filter" id="appliances-filter">
+          <div class="filter__header">
+            <span class="filter__title" id="appliances-title">Appareils</span>
+            <input
+              class="filter__search"
+              type="text"
+              placeholder="Rechercher un appareil"
+              id="appliances-input"
+              name="appliances-input"
+              oninput="refineSearch(this.value, this.id)"
+            />
+            <i
+              id="appliances-icon"
+              class="fa-solid fa-angle-down filter__icon"
+              onclick="openDropdownMenu('appliances')"
+            ></i>
+          </div>
+          <div id="appliances-list" class="filter__list">
+            <div class="filter__item">Blender</div>
+            <div class="filter__item">Casserole</div>
+            <div class="filter__item">Cocotte</div>
+            <div class="filter__item">Cuiseur de riz</div>
+            <div class="filter__item">Four</div>
+          </div>
         </div>
 
-        <section id="recipes">
+        <div class="filter" id="ustensils-filter">
+          <div class="filter__header">
+            <span class="filter__title" id="ustensils-title">Ustensiles</span>
+            <input
+              class="filter__search"
+              type="text"
+              placeholder="Rechercher un ustensile"
+              id="ustensils-input"
+              name="ustensils-input"
+              oninput="refineSearch(this.value, this.id)"
+            />
+            <i
+              id="ustensils-icon"
+              class="fa-solid fa-angle-down filter__icon"
+              onclick="openDropdownMenu('ustensils')"
+            ></i>
+          </div>
+          <div id="ustensils-list" class="filter__list">
+            <div class="filter__item">Bol</div>
+            <div class="filter__item">Casserole</div>
+            <div class="filter__item">Cocotte minute</div>
+            <div class="filter__item">Couteau</div>
+            <div class="filter__item">Cuillère en bois</div>
+          </div>
+        </div>
+      </div>
 
-        </section>
+      <section id="recipes"></section>
     </main>
 
     <script type="text/javascript" src="scripts/recipe.js"></script>
     <!-- <script type="text/javascript" src="scripts/recipe_natif.js"></script> -->
     <script type="text/javascript" src="scripts/factories/recipe.js"></script>
     <script type="text/javascript" src="data/recipes.js"></script>
-</body>
+  </body>
 </html>
